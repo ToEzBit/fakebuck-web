@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const ErrorContext = createContext();
 
@@ -12,5 +12,10 @@ function ErrorContextProvider({ children }) {
   );
 }
 
+const useError = () => {
+  const ctx = useContext(ErrorContext);
+  return ctx;
+};
+
 export default ErrorContextProvider;
-export { ErrorContext };
+export { ErrorContext, useError };
